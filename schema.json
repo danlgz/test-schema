@@ -1,0 +1,1020 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/EmailEditorSchema",
+    "definitions": {
+        "EmailEditorSchema": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "counters": {
+                    "$ref": "#/definitions/Counters"
+                },
+                "body": {
+                    "$ref": "#/definitions/Body"
+                },
+                "schemaVersion": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "body",
+                "counters",
+                "schemaVersion"
+            ],
+            "title": "EmailEditorSchema"
+        },
+        "Body": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "rows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Row"
+                    }
+                },
+                "values": {
+                    "$ref": "#/definitions/BodyValues"
+                }
+            },
+            "required": [
+                "id",
+                "rows",
+                "values"
+            ],
+            "title": "Body"
+        },
+        "Row": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "cells": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Column"
+                    }
+                },
+                "values": {
+                    "$ref": "#/definitions/RowValues"
+                }
+            },
+            "required": [
+                "cells",
+                "columns",
+                "id",
+                "values"
+            ],
+            "title": "Row"
+        },
+        "Column": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "contents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Content"
+                    }
+                },
+                "values": {
+                    "$ref": "#/definitions/ColumnValues"
+                }
+            },
+            "required": [
+                "contents",
+                "id",
+                "values"
+            ],
+            "title": "Column"
+        },
+        "Content": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "values": {
+                    "$ref": "#/definitions/ContentValues"
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "values"
+            ],
+            "title": "Content"
+        },
+        "ContentValues": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "containerPadding": {
+                    "type": "string"
+                },
+                "anchor": {
+                    "type": "string"
+                },
+                "src": {
+                    "$ref": "#/definitions/ValuesSrc"
+                },
+                "textAlign": {
+                    "$ref": "#/definitions/ContentAlign"
+                },
+                "altText": {
+                    "type": "string"
+                },
+                "action": {
+                    "$ref": "#/definitions/Action"
+                },
+                "hideDesktop": {
+                    "type": "boolean"
+                },
+                "displayCondition": {
+                    "type": "null"
+                },
+                "_meta": {
+                    "$ref": "#/definitions/Meta"
+                },
+                "selectable": {
+                    "type": "boolean"
+                },
+                "draggable": {
+                    "type": "boolean"
+                },
+                "duplicatable": {
+                    "type": "boolean"
+                },
+                "deletable": {
+                    "type": "boolean"
+                },
+                "hideable": {
+                    "type": "boolean"
+                },
+                "_override": {
+                    "$ref": "#/definitions/PurpleOverride"
+                },
+                "headingType": {
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "type": "integer"
+                },
+                "fontSize": {
+                    "type": "string"
+                },
+                "color": {
+                    "type": "string"
+                },
+                "lineHeight": {
+                    "$ref": "#/definitions/LineHeight"
+                },
+                "linkStyle": {
+                    "$ref": "#/definitions/LinkStyle"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "href": {
+                    "$ref": "#/definitions/Action"
+                },
+                "buttonColors": {
+                    "$ref": "#/definitions/ButtonColors"
+                },
+                "size": {
+                    "$ref": "#/definitions/SizeClass"
+                },
+                "padding": {
+                    "type": "string"
+                },
+                "border": {
+                    "$ref": "#/definitions/PurpleBorder"
+                },
+                "borderRadius": {
+                    "type": "string"
+                },
+                "calculatedWidth": {
+                    "type": "integer"
+                },
+                "calculatedHeight": {
+                    "type": "integer"
+                },
+                "menu": {
+                    "$ref": "#/definitions/Menu"
+                },
+                "textColor": {
+                    "type": "string"
+                },
+                "linkColor": {
+                    "$ref": "#/definitions/Color"
+                },
+                "align": {
+                    "$ref": "#/definitions/ContentAlign"
+                },
+                "layout": {
+                    "type": "string"
+                },
+                "separator": {
+                    "type": "string"
+                },
+                "width": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_meta",
+                "anchor",
+                "containerPadding",
+                "deletable",
+                "displayCondition",
+                "draggable",
+                "duplicatable",
+                "hideDesktop",
+                "hideable",
+                "selectable"
+            ],
+            "title": "ContentValues"
+        },
+        "Meta": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "htmlID": {
+                    "type": "string"
+                },
+                "htmlClassNames": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "htmlClassNames",
+                "htmlID"
+            ],
+            "title": "Meta"
+        },
+        "PurpleOverride": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mobile": {
+                    "$ref": "#/definitions/PurpleMobile"
+                }
+            },
+            "required": [
+                "mobile"
+            ],
+            "title": "PurpleOverride"
+        },
+        "PurpleMobile": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "src": {
+                    "$ref": "#/definitions/MobileSrc"
+                },
+                "fontSize": {
+                    "type": "string"
+                },
+                "textAlign": {
+                    "$ref": "#/definitions/ContentAlign"
+                },
+                "lineHeight": {
+                    "$ref": "#/definitions/LineHeight"
+                },
+                "layout": {
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "PurpleMobile"
+        },
+        "MobileSrc": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "maxWidth": {
+                    "type": "string"
+                },
+                "autoWidth": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "autoWidth",
+                "maxWidth"
+            ],
+            "title": "MobileSrc"
+        },
+        "Action": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "values": {
+                    "$ref": "#/definitions/AttrsClass"
+                }
+            },
+            "required": [
+                "name",
+                "values"
+            ],
+            "title": "Action"
+        },
+        "AttrsClass": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "href": {
+                    "$ref": "#/definitions/HrefUnion"
+                },
+                "target": {
+                    "$ref": "#/definitions/Target"
+                }
+            },
+            "required": [
+                "href",
+                "target"
+            ],
+            "title": "AttrsClass"
+        },
+        "PurpleBorder": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "borderTopWidth": {
+                    "type": "string"
+                },
+                "borderTopStyle": {
+                    "type": "string"
+                },
+                "borderTopColor": {
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "PurpleBorder"
+        },
+        "ButtonColors": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "backgroundColor": {
+                    "$ref": "#/definitions/Color"
+                },
+                "hoverColor": {
+                    "type": "string"
+                },
+                "hoverBackgroundColor": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "backgroundColor",
+                "color",
+                "hoverBackgroundColor",
+                "hoverColor"
+            ],
+            "title": "ButtonColors"
+        },
+        "LinkStyle": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "inherit": {
+                    "type": "boolean"
+                },
+                "linkColor": {
+                    "$ref": "#/definitions/Color"
+                },
+                "linkHoverColor": {
+                    "$ref": "#/definitions/Color"
+                },
+                "linkUnderline": {
+                    "type": "boolean"
+                },
+                "linkHoverUnderline": {
+                    "type": "boolean"
+                },
+                "body": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "inherit",
+                "linkColor",
+                "linkHoverColor",
+                "linkHoverUnderline",
+                "linkUnderline"
+            ],
+            "title": "LinkStyle"
+        },
+        "Menu": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Item"
+                    }
+                }
+            },
+            "required": [
+                "items"
+            ],
+            "title": "Menu"
+        },
+        "Item": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "link": {
+                    "$ref": "#/definitions/Link"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "key",
+                "link",
+                "text"
+            ],
+            "title": "Item"
+        },
+        "Link": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "attrs": {
+                    "$ref": "#/definitions/AttrsClass"
+                },
+                "values": {
+                    "$ref": "#/definitions/AttrsClass"
+                }
+            },
+            "required": [
+                "attrs",
+                "name",
+                "values"
+            ],
+            "title": "Link"
+        },
+        "SizeClass": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "autoWidth": {
+                    "type": "boolean"
+                },
+                "width": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "autoWidth",
+                "width"
+            ],
+            "title": "SizeClass"
+        },
+        "ValuesSrc": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".jpg",
+                        ".png"
+                    ]
+                },
+                "width": {
+                    "type": "integer"
+                },
+                "height": {
+                    "type": "integer"
+                },
+                "maxWidth": {
+                    "type": "string"
+                },
+                "autoWidth": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "height",
+                "url",
+                "width"
+            ],
+            "title": "ValuesSrc"
+        },
+        "ColumnValues": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "_meta": {
+                    "$ref": "#/definitions/Meta"
+                },
+                "border": {
+                    "$ref": "#/definitions/MobileBorder"
+                },
+                "padding": {
+                    "type": "string"
+                },
+                "backgroundColor": {
+                    "type": "string"
+                },
+                "borderRadius": {
+                    "$ref": "#/definitions/PopupCloseButtonBorderRadius"
+                },
+                "_override": {
+                    "$ref": "#/definitions/FluffyOverride"
+                }
+            },
+            "required": [
+                "_meta",
+                "backgroundColor",
+                "border",
+                "padding"
+            ],
+            "title": "ColumnValues"
+        },
+        "FluffyOverride": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mobile": {
+                    "$ref": "#/definitions/FluffyMobile"
+                }
+            },
+            "required": [
+                "mobile"
+            ],
+            "title": "FluffyOverride"
+        },
+        "FluffyMobile": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "border": {
+                    "$ref": "#/definitions/MobileBorder"
+                }
+            },
+            "required": [
+                "border"
+            ],
+            "title": "FluffyMobile"
+        },
+        "MobileBorder": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "borderTopColor": {
+                    "type": "string"
+                },
+                "borderTopStyle": {
+                    "type": "string"
+                },
+                "borderTopWidth": {
+                    "$ref": "#/definitions/PopupCloseButtonBorderRadius"
+                },
+                "borderLeftColor": {
+                    "type": "string"
+                },
+                "borderLeftStyle": {
+                    "type": "string"
+                },
+                "borderLeftWidth": {
+                    "type": "string"
+                },
+                "borderRightColor": {
+                    "type": "string"
+                },
+                "borderRightStyle": {
+                    "type": "string"
+                },
+                "borderRightWidth": {
+                    "type": "string"
+                },
+                "borderBottomColor": {
+                    "type": "string"
+                },
+                "borderBottomStyle": {
+                    "type": "string"
+                },
+                "borderBottomWidth": {
+                    "$ref": "#/definitions/PopupCloseButtonBorderRadius"
+                }
+            },
+            "required": [],
+            "title": "MobileBorder"
+        },
+        "RowValues": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "displayCondition": {
+                    "type": "null"
+                },
+                "columns": {
+                    "type": "boolean"
+                },
+                "backgroundColor": {
+                    "type": "string"
+                },
+                "columnsBackgroundColor": {
+                    "type": "string"
+                },
+                "backgroundImage": {
+                    "$ref": "#/definitions/BackgroundImage"
+                },
+                "padding": {
+                    "type": "string"
+                },
+                "anchor": {
+                    "type": "string"
+                },
+                "hideDesktop": {
+                    "type": "boolean"
+                },
+                "_meta": {
+                    "$ref": "#/definitions/Meta"
+                },
+                "selectable": {
+                    "type": "boolean"
+                },
+                "draggable": {
+                    "type": "boolean"
+                },
+                "duplicatable": {
+                    "type": "boolean"
+                },
+                "deletable": {
+                    "type": "boolean"
+                },
+                "hideable": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "_meta",
+                "anchor",
+                "backgroundColor",
+                "backgroundImage",
+                "columns",
+                "columnsBackgroundColor",
+                "deletable",
+                "displayCondition",
+                "draggable",
+                "duplicatable",
+                "hideDesktop",
+                "hideable",
+                "padding",
+                "selectable"
+            ],
+            "title": "RowValues"
+        },
+        "BackgroundImage": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "fullWidth": {
+                    "type": "boolean"
+                },
+                "repeat": {
+                    "$ref": "#/definitions/Repeat"
+                },
+                "size": {
+                    "$ref": "#/definitions/SizeEnum"
+                },
+                "position": {
+                    "$ref": "#/definitions/ContentAlign"
+                }
+            },
+            "required": [
+                "fullWidth",
+                "position",
+                "repeat",
+                "size",
+                "url"
+            ],
+            "title": "BackgroundImage"
+        },
+        "BodyValues": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "popupPosition": {
+                    "$ref": "#/definitions/ContentAlign"
+                },
+                "popupWidth": {
+                    "type": "string"
+                },
+                "popupHeight": {
+                    "type": "string"
+                },
+                "borderRadius": {
+                    "type": "string"
+                },
+                "contentAlign": {
+                    "$ref": "#/definitions/ContentAlign"
+                },
+                "contentVerticalAlign": {
+                    "$ref": "#/definitions/ContentAlign"
+                },
+                "contentWidth": {
+                    "type": "integer"
+                },
+                "fontFamily": {
+                    "$ref": "#/definitions/FontFamily"
+                },
+                "textColor": {
+                    "type": "string"
+                },
+                "popupBackgroundColor": {
+                    "type": "string"
+                },
+                "popupBackgroundImage": {
+                    "$ref": "#/definitions/BackgroundImage"
+                },
+                "popupOverlay_backgroundColor": {
+                    "type": "string"
+                },
+                "popupCloseButton_position": {
+                    "type": "string"
+                },
+                "popupCloseButton_backgroundColor": {
+                    "type": "string"
+                },
+                "popupCloseButton_iconColor": {
+                    "type": "string"
+                },
+                "popupCloseButton_borderRadius": {
+                    "$ref": "#/definitions/PopupCloseButtonBorderRadius"
+                },
+                "popupCloseButton_margin": {
+                    "$ref": "#/definitions/PopupCloseButtonBorderRadius"
+                },
+                "popupCloseButton_action": {
+                    "$ref": "#/definitions/PopupCloseButtonAction"
+                },
+                "backgroundColor": {
+                    "type": "string"
+                },
+                "backgroundImage": {
+                    "$ref": "#/definitions/BackgroundImage"
+                },
+                "preheaderText": {
+                    "type": "string"
+                },
+                "linkStyle": {
+                    "$ref": "#/definitions/LinkStyle"
+                },
+                "_meta": {
+                    "$ref": "#/definitions/Meta"
+                }
+            },
+            "required": [
+                "_meta",
+                "backgroundColor",
+                "backgroundImage",
+                "borderRadius",
+                "contentAlign",
+                "contentVerticalAlign",
+                "contentWidth",
+                "fontFamily",
+                "linkStyle",
+                "popupBackgroundColor",
+                "popupBackgroundImage",
+                "popupCloseButton_action",
+                "popupCloseButton_backgroundColor",
+                "popupCloseButton_borderRadius",
+                "popupCloseButton_iconColor",
+                "popupCloseButton_margin",
+                "popupCloseButton_position",
+                "popupHeight",
+                "popupOverlay_backgroundColor",
+                "popupPosition",
+                "popupWidth",
+                "preheaderText",
+                "textColor"
+            ],
+            "title": "BodyValues"
+        },
+        "FontFamily": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "label": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "weights": {
+                    "type": "null"
+                },
+                "defaultFont": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "defaultFont",
+                "label",
+                "url",
+                "value",
+                "weights"
+            ],
+            "title": "FontFamily"
+        },
+        "PopupCloseButtonAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "attrs": {
+                    "$ref": "#/definitions/Attrs"
+                }
+            },
+            "required": [
+                "attrs",
+                "name"
+            ],
+            "title": "PopupCloseButtonAction"
+        },
+        "Attrs": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "onClick": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "onClick"
+            ],
+            "title": "Attrs"
+        },
+        "Counters": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "u_row": {
+                    "type": "integer"
+                },
+                "u_column": {
+                    "type": "integer"
+                },
+                "u_content_menu": {
+                    "type": "integer"
+                },
+                "u_content_text": {
+                    "type": "integer"
+                },
+                "u_content_image": {
+                    "type": "integer"
+                },
+                "u_content_button": {
+                    "type": "integer"
+                },
+                "u_content_divider": {
+                    "type": "integer"
+                },
+                "u_content_heading": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "u_column",
+                "u_content_button",
+                "u_content_divider",
+                "u_content_heading",
+                "u_content_image",
+                "u_content_menu",
+                "u_content_text",
+                "u_row"
+            ],
+            "title": "Counters"
+        },
+        "HrefUnion": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/HrefEnum"
+                },
+                {
+                    "type": "string",
+                    "format": "uri"
+                }
+            ],
+            "title": "HrefUnion"
+        },
+        "LineHeight": {
+            "type": "string",
+            "enum": [
+                "140%",
+                "120%",
+                "150%",
+                "200%"
+            ],
+            "title": "LineHeight"
+        },
+        "ContentAlign": {
+            "type": "string",
+            "enum": [
+                "center",
+                "right",
+                "left"
+            ],
+            "title": "ContentAlign"
+        },
+        "HrefEnum": {
+            "type": "string",
+            "enum": [
+                "",
+                "{{href}}"
+            ],
+            "title": "HrefEnum"
+        },
+        "Target": {
+            "type": "string",
+            "enum": [
+                "_blank",
+                "{{target}}",
+                "_self"
+            ],
+            "title": "Target"
+        },
+        "Color": {
+            "type": "string",
+            "enum": [
+                "#0000ee",
+                "#d2d2d7",
+                "#0071e3"
+            ],
+            "title": "Color"
+        },
+        "PopupCloseButtonBorderRadius": {
+            "type": "string",
+            "enum": [
+                "0px"
+            ],
+            "title": "PopupCloseButtonBorderRadius"
+        },
+        "Repeat": {
+            "type": "string",
+            "enum": [
+                "no-repeat"
+            ],
+            "title": "Repeat"
+        },
+        "SizeEnum": {
+            "type": "string",
+            "enum": [
+                "custom",
+                "cover"
+            ],
+            "title": "SizeEnum"
+        }
+    }
+}
